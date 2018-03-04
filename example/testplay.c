@@ -400,7 +400,8 @@ static int player_thread_create(play_para_t *player)
     ret = pthread_attr_setstacksize(&mgt.pthread_attr, 32*1024);   //default stack size maybe better
     if (ret != 0) {
 	PRINT("set static size  failed.\n");
-	return -1;
+	// always fails on my C2 --> ignore
+	//return -1;
     }
 
     pthread_mutex_init(&mgt.pthread_mutex, NULL);
